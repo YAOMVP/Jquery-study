@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>append and remove</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>The second li</li>
+    </ul>
+    <div class="test">The second div</div>
+    <script>
+        $(function() {
+            //1.Create first ('father and children relationship')
+            var li = $('<li>The third li</li>');
+            var preli = $('<li>The first li</li>')
+                //2.We need append then we can see the li
+            $('ul').append(li); // append means:put the second li after the first li
+            $('ul').prepend(preli); //prepend means:put the preli previous the second li
+            //3.remove the element
+            $('ul').remove(); //remove ul like:suicide
+            //another way:'empty' can delete the children keep father ul
+            $('ul').empty(); //==$('ul').html('');
+
+
+
+        })
+        $(function() {
+            //1.Create first ('siblings relationship')
+            var div = $('<div>The Third div</div>');
+            var befdiv = $('<div>The first div</div>')
+                //2.after/before can add the element
+            $('.test').after(div); //add another element after the 'test' div box 
+            $('.test').before(befdiv); //add first div before the 'test'div
+        })
+    </script>
+</body>
+
+</html>
