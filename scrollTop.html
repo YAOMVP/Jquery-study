@@ -21,6 +21,7 @@
             bottom: 100px;
             text-align: center;
             display: none;
+            cursor: pointer;
         }
         
         .container {
@@ -45,12 +46,20 @@
         $(function() {
             $(document).scrollTop(100);
             $(window).scroll(function() {
-                $(document).scrollTop();
-                if ($(document).scrollTop() >= boxTop) {
-                    $('.back').fadeIn();
-                } else {
-                    $('.back').fadeOut();
-                }
+                    $(document).scrollTop();
+                    if ($(document).scrollTop() >= boxTop) {
+                        $('.back').fadeIn();
+                    } else {
+                        $('.back').fadeOut();
+                    }
+                })
+                //Go back to the top
+            $('.back').click(function() {
+                // $(document).scrollTop(0);  // no animate we want to slow go back to the top
+                //html and body with animate
+                $('body, html').stop().animate({
+                    scrollTop: 0
+                })
             })
         })
     </script>
