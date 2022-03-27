@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weibo posting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        
+        ul {
+            list-style: none
+        }
+        
+        .box {
+            width: 600px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+        
+        textarea {
+            width: 450px;
+            height: 160px;
+            outline: none;
+            resize: none;
+        }
+        
+        ul {
+            width: 450px;
+            padding-left: 80px;
+        }
+        
+        ul li {
+            line-height: 25px;
+            border-bottom: 1px dashed #cccccc;
+            display: none;
+        }
+        
+        input {
+            float: left;
+        }
+        
+        ul li a {
+            float: right;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="box" id="weibo">
+        <span>Weibo posting</span>
+        <textarea name="" class="txt" cols="30" rows="10"></textarea>
+        <button class="btn">posting</button>
+        <ul>
+
+        </ul>
+    </div>
+    <script>
+        $(function() {
+            //1.click the button can create a li
+            $('.btn').on('click', function() {
+                var li = $('<li></li>');
+                //add 'value', and 'Delete' in the textarea
+                li.html($('.txt').val() + "<a href ='javascript:;'>Delete</a>");
+                // put in the ul
+                $('ul').prepend(li);
+                li.slideDown();
+                $('.txt').val('');
+            })
+
+            //2.click the 'Delete'can remove the posting
+            $('ul').on('click', 'a', function() {
+                //a's father is li then remove li
+                $(this).parent().slideUp(function() {
+                    $(this).remove();
+                });
+            })
+        })
+    </script>
+</body>
+
+</html>
