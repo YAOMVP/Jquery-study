@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>10-过滤方法</title>
+    <style>
+        body {
+            padding: 0 30px;
+        }
+        
+        p {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>过滤方法</h3>
+    <p>对获取到的元素进行过滤,返回的依旧是jQuery对象</p>
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ul>
+    <!-- 引入 jQuery -->
+    <script src="./jquery.min.js"></script>
+    <script>
+        //😊li的所有css样式全部变色
+        $('li').css('background', 'pink')
+
+        //😊第一个孩子变色
+        $('li').first().css('background', 'yellowgreen')
+
+        //😊最后一个孩子
+        $('li').last().css('background', 'skyblue')
+
+        //😊eq(索引号)是几的孩子变色
+        $('li').eq(1).css('background', 'pink')
+    </script>
+</body>
+
+</html>
