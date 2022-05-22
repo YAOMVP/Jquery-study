@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <!-- html结构 -->
+    <div id="app">
+        <!-- 计数器功能区域 -->
+        <div class="input-num">
+            <!-- 减号 -->
+            <button>-</button>
+            <!-- 内容 -->
+            <span>0</span>
+            <!-- 加号 -->
+            <button>+</button>
+        </div>
+    </div>
+
+    <script src="../jquery.min.js"></script>
+
+    <script>
+        $('.input-num button:last-child').click(function() {
+            // 😉获取到span的值
+            let num = $('.input-num span').text()
+            if (num < 10) {
+                //😉接下来需要累加
+                num++
+                $('.input-num span').text(num)
+            } else {
+                alert('太多了')
+            }
+        })
+        $('.input-num button:first-child').click(function() {
+            // 😉获取到span的值
+            let num = $('.input-num span').text()
+            if (num > 0) {
+                num--
+                $('.input-num span').text(num)
+            } else {
+                alert('太少了')
+            }
+        })
+    </script>
+</body>
+
+</html>
