@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>13-图片切换</title>
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">
+                <img src="./images/logo.png" alt="" />
+            </h2>
+            <!-- 图片 -->
+            <img class="cover" src="./images/1.png" alt="" />
+            <!-- 左箭头 -->
+            <a href="javascript:void(0)" class="left">
+                <img src="./images/prev.png" alt="" />
+            </a>
+            <!-- 右箭头 -->
+            <a href="javascript:void(0)" class="right">
+                <img src="./images/next.png" alt="" />
+            </a>
+        </div>
+    </div>
+    <!-- 导入jQuery -->
+    <script src="../jquery.min.js"></script>
+    <script>
+        // 1. 箭头缩放
+        $('.center a')
+            .mouseenter(function() {
+                //(this)是DOM  要转换成jquery的形式
+                $(this).css('transform', 'scale(1.2)')
+            })
+            .mouseleave(function() {
+                $(this).css('transform', 'scale(1.0)')
+            })
+
+
+        // 2. 图片切换
+        //😉第一张图片 左箭头先要隐藏
+        $('.left').css('display', 'none')
+            //😉开始点击事件 图片自动切换
+        let index = 1
+        $('.right').click(function() {
+            index++
+            //😉修改元素的属性用attr
+            $('.cover').attr('src', `./images/${index}.png`)
+                //最后一个图片最多是5 右侧箭头消失
+            if (index === 5) {
+                $(this).css('display', 'none')
+            }
+            //此时 左箭头显示
+            $('.left').css('display', 'block')
+        })
+
+
+        //😉开始点击事件 图片自动切换
+        $('.left').click(function() {
+            index--
+            //😉修改元素的属性用attr
+            $('.cover').attr('src', `./images/${index}.png`)
+                //第一个图片是1 左箭头消失
+            if (index === 1) {
+                $(this).css('display', 'none')
+            }
+            //此时 右箭头显示
+            $('.right').css('display', 'block')
+        })
+    </script>
+</body>
+
+</html>
