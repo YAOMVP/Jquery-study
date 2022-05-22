@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15-查找方法</title>
+    <style>
+        body {
+            padding: 0 1.875rem;
+        }
+        
+        p {
+            color: #333;
+        }
+        
+        ul {
+            border: .0625rem solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>15-查找方法</h3>
+    <p>
+        jQuery 中封装了查找元素的方法，可以基于元素的结构关系查找新的元素
+    </p>
+    <!-- 测试用标签 -->
+    <div class="container">
+        <h4>列表</h4>
+        <ul class="course">
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+        </ul>
+        <h4>列表</h4>
+        <ul class="campus">
+            <li class="bj">北京</li>
+            <li class="sh">上海</li>
+            <li class="gz">广州</li>
+            <li class="sz">深圳</li>
+        </ul>
+    </div>
+
+    <!-- 导入jQuery -->
+    <script src="./jquery.min.js"></script>
+    <script>
+        // 1. 父元素 parent  可不需要传递参数 因为父元素只有一个
+        $('.course')
+            .parent()
+            .css('backgroundColor', 'pink')
+
+        // 2. 子元素 children
+        $('.course').children().css('backgroundColor', 'skyblue')
+        $('.campus').children('.bj').css('backgroundColor', 'yellowgreen')
+
+        // 3.  兄弟元素 siblings 😊但不包含自己
+        $('.sz').siblings().css('color', 'red') //除去深圳，其他siblings的color都是红色
+        $('.sz').siblings('.gz').css('backgroundColor', 'orange')
+
+
+        // 4. 后代元素 find  后边所有的元素都是后代元素 不管是儿子还是孙子
+        $('.container').find('h4').css('backgroundColor', '#bfa')
+
+        $('.container').find('li').css('border', '10px solid purple')
+    </script>
+</body>
+
+</html>
