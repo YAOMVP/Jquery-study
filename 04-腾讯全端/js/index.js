@@ -24,6 +24,10 @@
         })
         //点击小方块返回顶部
     $('.gotop').click(function() {
-        $('html').scrollTop(0)
+        // $('html').scrollTop(0)
+        //添加动画效果
+        $('html').animate({
+            scrollTop: 0
+        })
     })
 })()
