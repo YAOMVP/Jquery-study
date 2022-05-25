@@ -31,7 +31,7 @@
 
 
 
-    //自动轮播
+    //自动轮播效果
     //拿到最后一张图片 返回的是jquery对象 所以用$开头
     function autoPlay() {
         let $last = $('.wblist').last()
