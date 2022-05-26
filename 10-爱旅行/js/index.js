@@ -13,7 +13,7 @@
 
             }
         })
-        // 2.点击返回顶部
+        // 2.点击返回顶部操作
     $('.gotop').click(function() {
         $('html').animate({
             scrollTop: 0
