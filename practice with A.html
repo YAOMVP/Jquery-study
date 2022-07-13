@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Merriweather&family=Montez&family=Montserrat:wght@400;900&family=Sacramento&family=Ubuntu&display=swap" rel="stylesheet">
+    <style>
+        .big-title {
+            font-size: 120px;
+            color: purple;
+            font-family: 'Indie Flower', cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="big-title">Hello.</h1>
+    <button>click</button>
+    <button>click</button>
+    <button>click</button>
+    <button>click</button>
+    <button>click</button>
+    <script src="./jquery.min.js"></script>
+
+    <script>
+        $(function() {
+            $("button:eq(2)").click(function() {
+                $("h1").animate({
+                    opacity: "0.5",
+                    height: "150"
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
